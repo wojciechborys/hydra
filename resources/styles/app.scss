@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  background-color: blue !important;
-}
+@import './helpers.scss';
+@import './variables.scss';
+@import './typography.scss';
+@import './utils.scss';
+@import './views/style.scss';
+@import './components/style.scss';

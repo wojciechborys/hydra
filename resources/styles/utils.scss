@@ -1,0 +1,28 @@
+.button {
+  font-family: 'Montserrat';
+  font-size: 12px;
+  font-weight: $bold;
+  line-height: 15px;
+  letter-spacing: 0em;
+  text-align: left;
+  border-radius: 40px;
+  text-transform: uppercase;
+  padding: 17px 34px;
+  &.outlined {
+    border: solid 2px $text_primary;
+    color: $text_primary;
+  }
+
+  &.gradient {
+    color: $base_primary;
+    @include gradient-bckg;
+  }
+}
+.socials {
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: block;
+}

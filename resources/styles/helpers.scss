@@ -1,0 +1,17 @@
+@mixin media-max-notebook {
+  @media (max-width: 1400px) {
+    @content;
+  }
+}
+
+@mixin gradient-bckg {
+  background: linear-gradient(251.27deg, #c0b7e8 12.87%, #8176af 89.33%);
+}
+
+.container {
+  max-width: 1400px;
+  margin: auto;
+  @include media-max-notebook {
+    max-width: 1200px;
+  }
+}

@@ -1,0 +1,32 @@
+.top-header {
+  &__buttons {
+    display: flex;
+    gap: 38px;
+    align-items: center;
+    width: 30%;
+  }
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    &--brand {
+      width: 30%;
+      img {
+        width: 180px;
+      }
+    }
+    &--menu {
+      display: flex;
+      gap: 41px;
+      a {
+        color: $text_primary;
+        text-transform: uppercase;
+        font-family: 'Montserrat';
+        font-size: 12px;
+        font-weight: $bold;
+        line-height: normal;
+      }
+    }
+  }
+}
