@@ -11,7 +11,11 @@ class HydraTheme {
         add_action('admin_menu', [$this, 'add_options_page']);
         add_action('admin_init', [$this, 'register_settings_and_fields']);
         add_action('admin_enqueue_scripts', [$this, 'enqueue_media_scripts']);    
-        add_action('init', [$this, 'register_custom_blocks']);
+        add_action('enqueue_block_editor_assets', [$this, 'add_custom_font']);
+        add_action('after_setup_theme', function () {
+            add_theme_support('editor-styles');
+            add_editor_style(asset('app.css')->relativePath(get_theme_file_path()));
+        });
     }
 
     public function enqueue_media_scripts() {
@@ -163,19 +167,6 @@ class HydraTheme {
 
     public function sanitize_image_upload($value) {
         return esc_url_raw($value);
-    }
-
-    public function register_custom_blocks() {
-        wp_register_script(
-            'hero',
-            get_template_directory_uri() . '/blocks/hero/hero.js',
-            array('wp-blocks', 'wp-components', 'wp-editor'),
-            filemtime(get_template_directory() . '/blocks/hero/hero.js')
-        );
-    
-        register_block_type('hydra/hero', array(
-            'editor_script' => 'hero',
-        ));
     }
 }
 

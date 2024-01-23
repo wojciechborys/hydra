@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202 39" width="202" height="39">
+	<title>Component 1-svg</title>
+	<style>
+		.s0 { fill: none;stroke: #c0b7e8;stroke-linecap: round;stroke-linejoin: round;stroke-width: 3 } 
+		.s1 { fill: none;stroke: #c0b7e8;stroke-width: 3 } 
+	</style>
+	<path id="Layer" fill-rule="evenodd" class="s0" d="m198.8 20h-41.6m41.6 0l-16.6 16.7m16.6-16.7l-16.6-16.7"/>
+	<path id="Layer" fill-rule="evenodd" class="s1" d="m157.5 20h-157.5"/>
+</svg>

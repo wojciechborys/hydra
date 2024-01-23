@@ -8,16 +8,85 @@
   border-radius: 40px;
   text-transform: uppercase;
   padding: 17px 34px;
+
   &.outlined {
     border: solid 2px $text_primary;
     color: $text_primary;
+    transition-duration: 0.3s;
+    &:hover {
+      background-color: $text_primary;
+      color: $base_primary;
+    }
   }
 
   &.gradient {
+    transition: opacity 0.3s linear;
     color: $base_primary;
+    position: relative;
+    z-index: 1;
     @include gradient-bckg;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      transition: opacity 0.3s linear;
+      left: 0;
+      right: 0;
+      border-radius: 40px;
+      bottom: 0;
+      z-index: -1;
+      top: 0;
+      opacity: 0;
+      @include gradient-bckg-hover;
+    }
+
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
   }
 }
+
+.wp-block-button.is-style-default {
+  .wp-block-button__link {
+    font-family: 'Montserrat';
+    font-size: 12px;
+    font-weight: $bold;
+    line-height: 15px;
+    letter-spacing: 0em;
+    text-align: left;
+    border-radius: 40px;
+    text-transform: uppercase;
+    padding: 17px 34px;
+    color: $base_primary;
+    transition: opacity 0.3s linear;
+    position: relative;
+    z-index: 1;
+    @include gradient-bckg;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      transition: opacity 0.3s linear;
+      left: 0;
+      right: 0;
+      border-radius: 40px;
+      bottom: 0;
+      z-index: -1;
+      top: 0;
+      opacity: 0;
+      @include gradient-bckg-hover;
+    }
+    &:hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .socials {
   width: 32px;
   height: 32px;
@@ -25,4 +94,32 @@
   background-position: center;
   background-repeat: no-repeat;
   display: block;
+}
+
+.arrow-right {
+  position: relative;
+  h2 {
+    font-weight: $light;
+    &.arrow-elem {
+      position: relative;
+      &::after {
+        content: '';
+        margin-left: 10px;
+        display: inline-block;
+        background-image: url('~@images/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 230px;
+        height: 44px;
+        position: absolute;
+        bottom: 0;
+        margin-left: 16px;
+      }
+    }
+    strong {
+      font-weight: $bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+  }
 }

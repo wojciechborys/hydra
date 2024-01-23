@@ -1,3 +1,127 @@
 body {
   background-color: $base_primary;
 }
+
+.hero-section {
+  margin-top: 100px;
+  .wp-block-media-text__content {
+    padding: 0;
+  }
+  img {
+    max-width: 100%;
+    width: 524px;
+    margin-left: auto;
+  }
+}
+
+.text-section {
+  .wp-block-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.image-boxes {
+  border-radius: 40px;
+  padding: 23px;
+  background: radial-gradient(50% 50% at 50% 50%, #433d60 0%, #211e2e 100%);
+  &__wrapper {
+    gap: 11px;
+  }
+  .wp-block-image {
+    overflow: hidden;
+    border-radius: 50%;
+    height: 220px;
+    width: 220px;
+    margin: auto;
+    border: solid 18px rgba(14, 14, 14, 0.32);
+    img {
+      height: 102%;
+      width: 102%;
+      max-width: none;
+      margin: -2px;
+    }
+  }
+
+  h3 {
+    margin-top: 21px;
+    text-align: center;
+    &::after {
+      content: '';
+      display: block;
+      background-color: rgba(192, 183, 232, 0.33);
+      height: 1px;
+      width: 70%;
+      margin: auto;
+      margin-top: 17px;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 19px;
+    margin-top: 21px;
+  }
+
+  .wp-block-buttons {
+    margin: auto;
+    margin-top: 35px;
+    text-align: center;
+    display: block;
+  }
+}
+
+.numbers {
+  &__column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &--number {
+      font-size: 64px;
+      font-style: normal;
+      width: 159px;
+      height: 159px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      border-radius: 50%;
+      color: #343045;
+      font-weight: $bold;
+      border: solid 18px rgba(14, 14, 14, 0.32);
+      line-height: normal;
+      position: relative;
+      overflow: hidden;
+      &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background: linear-gradient(251deg, #c0b7e8 12.87%, #8176af 89.33%);
+      }
+    }
+
+    &--title {
+      margin-top: 25px;
+      padding-left: 58px;
+      position: relative;
+      &::before {
+        content: '';
+        background-image: url('~@images/arrow-small-right.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 67px;
+        height: 67px;
+        display: block;
+        background-size: contain;
+        position: absolute;
+        left: 0;
+        top: -20px;
+      }
+    }
+  }
+}

@@ -1,4 +1,12 @@
 .top-header {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 999;
+  &.scrolled {
+    background-color: $base_primary;
+    box-shadow: 0 0 13px 3px rgba(0, 0, 0, 0.352);
+  }
   &__buttons {
     display: flex;
     gap: 38px;
@@ -12,6 +20,7 @@
     margin-top: 50px;
     &--brand {
       width: 30%;
+      margin: 10px 0;
       img {
         width: 180px;
       }
@@ -19,13 +28,30 @@
     &--menu {
       display: flex;
       gap: 41px;
-      a {
-        color: $text_primary;
-        text-transform: uppercase;
-        font-family: 'Montserrat';
-        font-size: 12px;
-        font-weight: $bold;
-        line-height: normal;
+      li {
+        a {
+          color: $text_primary;
+          text-transform: uppercase;
+          font-family: 'Montserrat';
+          font-size: 12px;
+          font-weight: $bold;
+          line-height: normal;
+          &::after {
+            content: '';
+            display: block;
+            width: 0;
+            transition-duration: 0.3s;
+            height: 3px;
+            background-size: cover;
+            background: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+          }
+
+          &:hover {
+            &::after {
+              width: 100%;
+            }
+          }
+        }
       }
     }
   }
