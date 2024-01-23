@@ -1,0 +1,44 @@
+version: "3.3"
+services:
+  hydra:
+    depends_on:
+      - mysql
+    image: wordpress
+    restart: always
+    volumes: ["./:/var/www/html"]
+    environment:
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: admin
+      WORDPRESS_DB_PASSWORD: admin
+      WORDPRESS_DB_NAME: hydra_wp
+    ports:
+      - 8084:80
+  mysql:
+    image: mysql:8
+    ports:
+      - 3306:3306
+    expose:
+      - "3306"
+    restart: always
+    volumes:
+      - ./database:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: hydra_wp
+      MYSQL_PASSWORD: admin
+      MYSQL_USER: admin
+  phpmyadmin:
+    depends_on:
+      - mysql
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8083:8080
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_USERNAME: admin
+      MYSQL_ROOT_PASSWORD: admin
+volumes:
+  database:
